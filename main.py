@@ -164,39 +164,29 @@ class ChatGPTReplica(QMainWindow):
 
         # Hamburger icon
         self.toggle_button = QToolButton(self)
-        self.toggle_button.setText("☰")  # Changed to a right arrow
-        self.toggle_button.setStyleSheet("font-size: 20px;")  # Increase size of the arrow
-        self.toggle_button.setFixedSize(50, 50)  # Set fixed size for consistency
+        self.toggle_button.setText("☰")  # Hamburger icon
+        self.toggle_button.setFixedSize(40, 40)
         self.toggle_button.clicked.connect(self.toggle_sidebar)
         nav_bar.addWidget(self.toggle_button)
 
         # Title label
         title_label = QLabel("ChatGPT clone on PyQt", self)  # Title label
         title_label.setStyleSheet("font-size: 18px; font-weight: bold;")  # Optional style
-        title_label.setAlignment(Qt.AlignCenter)  # Center the title label
         nav_bar.addWidget(title_label)
 
         # Logo placeholder
-        logo_label = QLabel("Logo", self)  # Replace with your logo image if needed
-        logo_label.setAlignment(Qt.AlignCenter)  # Center the logo label
+        logo_label = QLabel("<--Logo-->", self)  # Replace with your logo image if needed
         nav_bar.addWidget(logo_label)
 
-        # Model selection dropdown (reduced width and made softer)
+        # Model selection dropdown (reduced width)
         self.model_selection = QComboBox(self)
-        self.model_selection.setFixedWidth(120)  # Increased fixed width for a larger appearance
-        self.model_selection.setStyleSheet("""
-            QComboBox {
-                padding: 8px;  /* Adjusted padding for softness */
-                font-size: 14px;  /* Set font size for better visibility */
-                border: 1px solid #CCCCCC;  /* Light border for soft appearance */
-                border-radius: 10px;  /* Rounded corners */
-            }
-        """)
+        self.model_selection.setFixedWidth(100)  # Set fixed width for the dropdown
         self.model_selection.addItems(["Model 1", "Model 2", "Model 3"])  # Add your model options here
         nav_bar.addWidget(self.model_selection)
 
         # Add the navigation bar to the main layout
         self.layout.addLayout(nav_bar)  # Use self.layout to add the nav bar layout
+
 
     def toggle_sidebar(self):
         """Toggle the visibility of the sidebar."""
